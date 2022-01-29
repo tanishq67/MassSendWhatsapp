@@ -1,7 +1,7 @@
 import pywhatkit
 import pandas as pd
 import time
-import pyautogui
+from pyautogui import click, hotkey, press, moveTo
 
 def send():
     df = pd.read_csv('contact.csv')
@@ -11,9 +11,12 @@ def send():
         pywhatkit.sendwhatmsg_instantly('+91' + str(df['num'][i]), msg, 5)
         time.sleep(10)
         print("lets print: ")
-        pyautogui.moveTo(1870, 1040)
-        pyautogui.click()
+        moveTo(1870, 1040)
+        click()
+        hotkey("ctrl", "w")
+        press("enter")
         print("operation executed -")
+
 
 
 
